@@ -1,0 +1,28 @@
+{
+	"name": "docalist/docalist-postal-address-metadata",
+	"description": "Docalist: Metadata for postal adresses.",
+    "homepage": "http://docalist.org/",
+	"license": "GPL-2.0",
+
+	"authors": [ 
+        {
+            "name": "Daniel Ménard",
+            "email": "daniel.menard@laposte.net",
+            "homepage": "http://docalist.org/"
+        }
+    ],
+
+	"keywords": [
+		"docalist", "Postal Address"
+	],
+    
+    "support": {
+        "issues": "https://github.com/docalist/docalist/issues",
+        "forum": "https://groups.google.com/forum/#!forum/docalist-discuss"
+    },
+    
+	"require": {
+		"composer/installers": "~1.0",
+		"php": ">=5.4"
+	}
+}
