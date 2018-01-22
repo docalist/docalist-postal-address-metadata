@@ -14,6 +14,8 @@ namespace Docalist\PostalAddressMetadata\Scripts;
  * PostalAddressMetadata pour gérer l'affichage et la saisie des adresses postales.
  *
  * (cf. https://github.com/googlei18n/libaddressinput/wiki/AddressValidationMetadata)
+ *
+ * @author Daniel Ménard <daniel.menard@laposte.net>
  */
 class PostalAddressScriptHelper
 {

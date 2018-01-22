@@ -17,6 +17,8 @@ use InvalidArgumentException;
  * PostalAddressMetadata
  *
  * Fournit des informations sur le format des adresses postales dans tous les pays du monde.
+ *
+ * @author Daniel Ménard <daniel.menard@laposte.net>
  */
 class PostalAddressMetadata
 {

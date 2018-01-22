@@ -6,6 +6,8 @@
  *
  * For copyright and license information, please view the
  * LICENSE file that was distributed with this source code.
+ *
+ * @author Daniel Ménard <daniel.menard@laposte.net>
  */
 namespace Docalist\PostalAddressMetadata\Resources;
 
