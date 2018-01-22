@@ -1,3 +1,5 @@
+scripts/cache
+
 # Adapted from https://github.com/github/gitignore/blob/master/Global/Eclipse.gitignore
 
 *.pydevproject
