@@ -395,7 +395,7 @@ class PostalAddressMetadata
                 $field = $this->codeToField($code);
                 isset($address[$field]) && $address[$field] = $transliterator->transliterate($address[$field]);
             }
-            $country && $country = $transliterator->transliterate($country);
+            !is_null($country) && $country = $transliterator->transliterate($country);
         }
 
         // Crée un tableau de remplacement %code => valeur
@@ -421,7 +421,7 @@ class PostalAddressMetadata
             $lines
         );
         $lines = array_filter($lines);
-        $country && $lines[] = $country;
+        !is_null($country) && $lines[] = $country;
 
         // Ok
         return implode($options['separator'], $lines);

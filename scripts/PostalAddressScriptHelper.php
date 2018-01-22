@@ -110,6 +110,7 @@ class PostalAddressScriptHelper
         $file = strtr($id, ['/' => '-']) . '.json';
 
         // Teste si on a déjà le fichier dans le cache
+        $path = null;
         if ($this->cacheDirectory && file_exists($path = $this->cacheDirectory . DIRECTORY_SEPARATOR . $file)) {
             $data = file_get_contents($path);
             $data = json_decode($data, true);
@@ -160,7 +161,7 @@ class PostalAddressScriptHelper
      *
      * @param string $country
      *
-     * @return array.
+     * @return array
      */
     public function getDataFor($country)
     {
