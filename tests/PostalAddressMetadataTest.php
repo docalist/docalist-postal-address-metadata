@@ -29,7 +29,7 @@ class PostalAddressMetadataTest extends PHPUnit_Framework_TestCase
         $default = $data['ZZ'];
 
         // Vérifie chacune des entrées
-        foreach($data as $code => $data) {
+        foreach ($data as $code => $data) {
             // Les codes pays doivent contenir exactement deux caractères en maju
             $this->assertTrue(1 === preg_match('~[A-Z]{2}~', $code), 'Invalid country code "' . $code . '"');
 
@@ -40,7 +40,7 @@ class PostalAddressMetadataTest extends PHPUnit_Framework_TestCase
             $data += $default;
 
             // On n'a que des clés autorisées
-            foreach(array_keys($data) as $key) {
+            foreach (array_keys($data) as $key) {
                 $this->assertOneOf(
                     [
                         'fmt', 'locality_name_type', 'require', 'state_name_type', 'sublocality_name_type',

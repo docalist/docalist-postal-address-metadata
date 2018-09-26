@@ -79,7 +79,7 @@ class PostalAddressMetadata
      *
      * @throws InvalidArgumentException Si le code pays indiqué n'est pas valide (cf. getCountries).
      */
-    public function __construct($country= '')
+    public function __construct($country = '')
     {
         $this->setCountry($country);
     }
@@ -182,7 +182,7 @@ class PostalAddressMetadata
 
         // Convertit les codes en noms de champs
         $fields = $matches[1];
-        foreach($fields as & $field) {
+        foreach ($fields as & $field) {
             $field = $this->codeToField($field);
         }
 
@@ -331,7 +331,7 @@ class PostalAddressMetadata
         // Eclate le format d'adresse en lignes
         $lines = [];
         $matches = null; // évite warning éclipse
-        foreach(explode('%n', $format) as $line) {
+        foreach (explode('%n', $format) as $line) {
             // Extrait les champs qui figurent sur cette ligne
             if (preg_match_all('~%([NOADCSZX])~', $line, $matches)) {
                 $lines[] = array_map([$this, 'codeToField'], $matches[1]);
@@ -395,7 +395,7 @@ class PostalAddressMetadata
         // Met en majuscules les champs qui doivent l'être
         if ($options['uppercase']) {
             $transliterator = Transliterator::create('NFD; [:Nonspacing Mark:] Remove; Upper; NFC');
-            foreach(str_split($metadata['upper']) as $code) {
+            foreach (str_split($metadata['upper']) as $code) {
                 $field = $this->codeToField($code);
                 isset($address[$field]) && $address[$field] = $transliterator->transliterate($address[$field]);
             }
@@ -404,10 +404,9 @@ class PostalAddressMetadata
 
         // Crée un tableau de remplacement %code => valeur
         $fields = [];
-        foreach(self::$codes as $code => $field) {
+        foreach (self::$codes as $code => $field) {
             $value = '';
-            if (isset($address[$field]))
-            {
+            if (isset($address[$field])) {
                 $value = $address[$field];
                 $value = trim($value, " \t-,\n");
                 $value = str_replace("\n", '%n', $value);
@@ -419,7 +418,7 @@ class PostalAddressMetadata
         // Formatte l'adresse
         $lines = explode('%n', strtr($metadata['fmt'], $fields));
         $lines = array_map(
-            function($line) {
+            function ($line) {
                 return trim($line, " \t-,\n");
             },
             $lines

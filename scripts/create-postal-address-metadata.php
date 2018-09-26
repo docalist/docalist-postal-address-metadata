@@ -42,7 +42,7 @@ echo '- Destination file: ~', $file, "\n";
 if (file_exists($path)) {
     echo '- Existing file will be overwritten. Are you sure you want to do this [y/N]? ';
     $confirmation  =  trim(fgets(STDIN));
-    if ( $confirmation !== 'y' ) {
+    if ($confirmation !== 'y') {
         echo '- Aborting', "\n";
         return;
     }
@@ -67,9 +67,11 @@ echo ' : ', count($countries), " countries\n";
 // Charge tous les pays
 echo "- Getting country data:\n";
 $data = [];
-foreach($countries as $i => $country) {
+foreach ($countries as $i => $country) {
     echo '  ', $country;
-    if ($i % 20 === 19) echo "\n";
+    if ($i % 20 === 19) {
+        echo "\n";
+    }
     $data[$country] = $helper->getDataFor($country);
 }
 echo "\n";
@@ -122,9 +124,9 @@ fclose($handle);
 // Génère des statistiques
 $fields = [];
 $facets = ['locality_name_type' => [], 'state_name_type' => [], 'sublocality_name_type' => [], 'zip_name_type' => []];
-foreach($data as $format) {
+foreach ($data as $format) {
     $fields += $format;
-    foreach($facets as $field => &$values) {
+    foreach ($facets as $field => &$values) {
         if (isset($format[$field])) {
             $value = $format[$field];
             (isset($values[$value])) ? (++$values[$value]) : ($values[$value] = 1);
@@ -144,11 +146,11 @@ ksort($fields);
 echo '- Fields list: ', implode(', ', array_keys($fields)), "\n";
 
 // Affiche la liste des valeurs possibles pour différents champs
-foreach($facets as $field => $values) {
+foreach ($facets as $field => $values) {
     echo '- Values for field "', $field, '": ';
     ksort($values);
     $t = [];
-    foreach($values as $value => $count) {
+    foreach ($values as $value => $count) {
         $t[] = $value . '(' . $count . ')';
     }
     echo implode(', ', $t), "\n";

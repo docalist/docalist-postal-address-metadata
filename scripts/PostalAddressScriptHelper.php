@@ -68,7 +68,7 @@ class PostalAddressScriptHelper
      * - village_township (1) : canton
      *
      * Le champ postalCodeType (zip_name_type) peut contenir les valeurs suivantes :
-     * - postal	(238) : code postal makoritairement utilisé
+     * - postal (238) : code postal makoritairement utilisé
      * - zip (10) : utilisé aux USA (et extensions : Micronésie, Porto Rico...). "Zone Improvment Plan"
      * - pin (1) : utilisé en Inde, "Postal Index Number".
      */
@@ -204,7 +204,7 @@ class PostalAddressScriptHelper
     {
         // Code postal obligatoire, région manquate (EE, LV, LT).
         // https://github.com/googlei18n/libaddressinput/issues/64
-        foreach(['EE', 'LT'] as $country) {
+        foreach (['EE', 'LT'] as $country) {
             $data[$country]['require'] = 'ACZ';
             $data[$country]['fmt']   .= ' %S';
             $data[$country]['state_name_type']  = 'county';
@@ -232,7 +232,7 @@ class PostalAddressScriptHelper
         return $default;
     }
 
-    public function prettyVarExport($var, $indent="")
+    public function prettyVarExport($var, $indent = "")
     {
         switch (gettype($var)) {
             case 'string':
@@ -252,7 +252,7 @@ class PostalAddressScriptHelper
                 return $var ? "TRUE" : "FALSE";
 
             default:
-                return var_export($var, TRUE);
+                return var_export($var, true);
         }
     }
 }
