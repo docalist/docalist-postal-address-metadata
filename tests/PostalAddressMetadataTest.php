@@ -11,9 +11,19 @@ namespace Docalist\PostalAddressMetadata\Tests;
 
 use PHPUnit_Framework_TestCase;
 use Docalist\PostalAddressMetadata\PostalAddressMetadata;
+use Locale;
 
 class PostalAddressMetadataTest extends PHPUnit_Framework_TestCase
 {
+    /**
+     * Pour que les tests passent, il faut que la locale soit en français, sinon les noms des pays
+     * ne sont pas retournés dans la bonne langue.
+     */
+    protected function setUp()
+    {
+        Locale::setDefault('fr_FR');
+    }
+
     /**
      * Vérifie que le fichier contenant les meta-données est correct.
      */
