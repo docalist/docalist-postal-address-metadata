@@ -685,13 +685,13 @@ class PostalAddressMetadataTest extends PHPUnit_Framework_TestCase
 
         $format = new PostalAddressMetadata();
         $this->assertSame(
-            "Some Street 12\nAhuachapán\nAhuachapán\nSalvador",
+            "Some Street 12\nAhuachapán\nAhuachapán\nEl Salvador",
             $format->format($address, ['uppercase' => false])
         );
 
         $address['postalCode'] = 'CP 2101';
         $this->assertSame(
-            "Some Street 12\nCP 2101-Ahuachapán\nAhuachapán\nSalvador",
+            "Some Street 12\nCP 2101-Ahuachapán\nAhuachapán\nEl Salvador",
             $format->format($address, ['uppercase' => false])
         );
     }
