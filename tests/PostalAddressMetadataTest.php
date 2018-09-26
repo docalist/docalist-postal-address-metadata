@@ -155,6 +155,8 @@ class PostalAddressMetadataTest extends PHPUnit_Framework_TestCase
      */
     protected function assertValidFormat($format, $message = '')
     {
+        $count = 0; // évite warning sous eclipse
+
         // Supprime toutes les séquences valides
         $check = preg_replace('~%[NOADCSZX]~', '', $format, -1, $count);
 

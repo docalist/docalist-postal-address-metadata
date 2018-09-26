@@ -177,6 +177,7 @@ class PostalAddressMetadata
         $format = $this->metadata['fmt']; // Pas de isset, existe toujours, cf. tests
 
         // Extrait tous les codes de la forme %X
+        $matches = null; // évite warning éclipse
         preg_match_all('~%([NOADCSZX])~', $format, $matches);
 
         // Convertit les codes en noms de champs
@@ -329,6 +330,7 @@ class PostalAddressMetadata
 
         // Eclate le format d'adresse en lignes
         $lines = [];
+        $matches = null; // évite warning éclipse
         foreach(explode('%n', $format) as $line) {
             // Extrait les champs qui figurent sur cette ligne
             if (preg_match_all('~%([NOADCSZX])~', $line, $matches)) {
