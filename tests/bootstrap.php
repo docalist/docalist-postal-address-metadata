@@ -9,4 +9,4 @@
  */
 namespace Docalist\PostalAddressMetadata\Tests;
 
-require __DIR__ . '/../class/PostalAddressMetadata.php';
+require __DIR__ . '/../vendor/autoload.php';
